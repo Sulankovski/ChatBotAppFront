@@ -1,0 +1,24 @@
+.chatRoom{
+    flex: 4;
+}
+
+.message-input {
+    background-color: #a08a9d;
+    padding: 1rem;
+}
+
+.message-list{
+    padding: 10px;
+}
+.noRoomsStyle{
+    color: #3c2349;
+    font-size: xx-large;
+    font-weight: bold;
+    /*font-style: italic;*/
+}
+.no-rooms-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

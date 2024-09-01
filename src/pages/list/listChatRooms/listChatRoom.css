@@ -1,0 +1,16 @@
+.listClassRoom{
+    flex: 1;
+}
+#cardsUser {
+    max-height: calc(100vh);
+    overflow-y: auto;
+}
+
+.buttonColor{
+    background-color: #3c2349;
+    color: white;
+}
+.buttonColor:hover{
+    background-color: #67506a;
+    color: white;
+}
