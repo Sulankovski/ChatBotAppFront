@@ -21,7 +21,7 @@
 }
 
 .modal-content {
-    background: #fff;
+    background: #a08a9d; /* Updated background color */
     padding: 20px;
     border-radius: 8px;
     width: 400px;
@@ -41,4 +41,13 @@
 .modal-footer {
     display: flex;
     justify-content: flex-end;
+}
+
+.btn-primary {
+    background-color: #3c2349; /* Button background color */
+    color: white; /* Button text color */
+}
+
+.btn-primary:hover {
+    background-color: #67506a; /* Button hover color */
 }

@@ -1,4 +1,3 @@
-// src/components/modal/Modal.jsx
 import React from 'react';
 import './modal.css';
 
@@ -19,10 +18,10 @@ const Modal = ({ show, handleClose, handleCreate, chatRoomName, setChatRoomName 
                     />
                 </div>
                 <div className="modal-footer">
-                    <button className="btn btn-primary" onClick={handleCreate}>
+                    <button className="btn buttonColor" onClick={handleCreate}>
                         Create
                     </button>
-                    <button className="btn btn-secondary" onClick={handleClose}>
+                    <button className="btn buttonColor" onClick={handleClose}>
                         Cancel
                     </button>
                 </div>

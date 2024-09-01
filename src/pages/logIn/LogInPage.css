@@ -1,0 +1,63 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #a08a9d; /* Background color of the page */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px; /* Maximum width for the form container */
+    padding: 1rem;
+    border-radius: 8px; /* Optional: Rounded corners for the form container */
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between; /* Space between input fields */
+    gap: 1rem; /* Optional: Space between input fields */
+}
+
+.input-field {
+    width: 48%; /* Each input field takes 48% of the container width */
+}
+
+.input-field label {
+    display: block; /* Ensure label takes full width */
+    text-align: center; /* Center the text inside the label */
+    color: #3c2349; /* Set color for labels */
+}
+
+.input-field input {
+    width: 100%; /* Full width for input fields */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+}
+
+button {
+    width: auto; /* Auto width for button to fit its content */
+    margin: 0 auto; /* Center button horizontally */
+}
+
+.textColor {
+    color: #3c2349;
+}
+
+.buttonColor {
+    background-color: #3c2349;
+    color: white;
+}
+
+.buttonColor:hover {
+    background-color: #67506a;
+    color: white;
+}

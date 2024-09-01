@@ -1,0 +1,8 @@
+.buttonColor{
+    background-color: #3c2349;
+    color: white;
+}
+.buttonColor:hover{
+    background-color: #67506a;
+    color: white;
+}

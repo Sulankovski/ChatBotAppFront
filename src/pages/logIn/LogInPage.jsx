@@ -45,35 +45,42 @@ function LogInPage({ toggleAuthMode }) {
     };
 
     return (
-        <div className="w-25 p-3 border border-primary rounded">
-            <h2>Sign In</h2>
-            <form onSubmit={handleLogin}>
-                <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Sign In</button>
-            </form>
-            <p className="mt-3">
-                New to the app? <span className="text-primary" style={{ cursor: "pointer" }} onClick={navigateToRegister}>Create an account</span>
-            </p>
+        <div className="centered-container">
+            <div className="form-container">
+                <h2 className="text-center textColor">Sign In</h2>
+                <form onSubmit={handleLogin} className="form-content">
+                    <div className="input-group">
+                        <div className="input-field">
+                            <label className="form-label">Email</label>
+                            <input
+                                type="email"
+                                className="form-control textColor"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className="input-field">
+                            <label className="form-label">Password</label>
+                            <input
+                                type="password"
+                                className="form-control textColor"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="button-container mt-3">
+                        <button type="submit" className="btn buttonColor w-50">Sign In</button>
+                    </div>
+                </form>
+                <p className="mt-3 text-center">
+                    New to the app? <span className="textColor" style={{ cursor: "pointer" }} onClick={navigateToRegister}>Create an account</span>
+                </p>
+            </div>
         </div>
+
     );
 }
 

@@ -17,8 +17,8 @@ function HomePage() {
         <div className="vh-100 d-flex flex-column justify-content-center align-items-center backgroundStyle">
             <h1>Welcome to the Recipe Chat Bot App</h1>
             <div className="mt-5">
-                <button className="btn btn-primary me-3" onClick={navigateToLogin}>Log In</button>
-                <button className="btn btn-secondary" onClick={navigateToRegister}>Sign Up</button>
+                <button className="btn buttonColor me-3" onClick={navigateToLogin}>Log In</button>
+                <button className="btn buttonColor" onClick={navigateToRegister}>Sign Up</button>
             </div>
         </div>
     );

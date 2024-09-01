@@ -55,10 +55,10 @@ const ListChatRoom = () => {
     };
 
     return (
-        <div>
+        <div className="backgroundColor">
             <div className="d-flex vh-100">
                 <div className="d-flex flex-column sidebar px-2">
-                    <UserInfo/>
+                    <UserInfo />
                     <div id="cardsUser">
                         {chatRooms.length > 0 ? (
                             chatRooms.map((chatRoom) => (
@@ -66,7 +66,9 @@ const ListChatRoom = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">{chatRoom.title}</h5>
                                         <div className="row">
-                                            <p className="col-6 card-text">{new Date(chatRoom.dateCreated).toISOString().split('T')[0]}</p>
+                                            <p className="col-6 card-text">
+                                                {new Date(chatRoom.dateCreated).toISOString().split('T')[0]}
+                                            </p>
                                             <button
                                                 className="btn buttonColor col-6"
                                                 onClick={() => handleOpenChat(chatRoom.id)}
@@ -92,7 +94,7 @@ const ListChatRoom = () => {
                         </button>
                     </div>
                 </div>
-                <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom}/>
+                <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom} />
             </div>
             <Modal
                 show={isModalOpen}
