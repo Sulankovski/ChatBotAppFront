@@ -1,6 +1,6 @@
 import "./chatRoom.css";
 import "../list/listChatRooms/listChatRoom.css";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import MessageRepository from "../../repository/MessageRepository";
 import Modal from "../../models/Modal";
 import ChatRepository from "../../repository/ChatRepository";
@@ -11,7 +11,9 @@ const ChatRoom = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newChatRoomName, setNewChatRoomName] = useState("");
     const userDTO = JSON.parse(localStorage.getItem('userDTO'));
-    const userId = userDTO.id
+    const userId = userDTO.id;
+
+    const bottomRef = useRef(null); // Reference for the last message
 
     const getAllMessagesForRoom = () => {
         MessageRepository.getAllMessagesForRoom(props.selectedChatRoomId)
@@ -36,7 +38,7 @@ const ChatRoom = (props) => {
                     }
                 ).catch((error) => {
                 console.error("Error creating chat room: ", error)
-            })
+            });
 
             setIsModalOpen(false);
             setNewChatRoomName(""); // Reset the input field
@@ -52,19 +54,17 @@ const ChatRoom = (props) => {
             .catch((error) => {
                 console.error("Error sending message: ", error);
             });
-    }
+    };
 
     const createResponseForMessage = (newMessageObj) => {
         MessageRepository.getResponseForMessage(newMessageObj)
             .then((response) => {
-                setTimeout(() => {
-                    setMessagesForRoom((prevMessages) => [...prevMessages, response.data]);
-                }, 500);
+                setMessagesForRoom((prevMessages) => [...prevMessages, response.data]);
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.error("Error creating response: ", error);
-            })
-    }
+            });
+    };
 
     const handleSendMessage = () => {
         if (newMessage.trim() === "") return;
@@ -77,7 +77,9 @@ const ChatRoom = (props) => {
         };
 
         createNewMessage(newMessageObj);
-        createResponseForMessage(newMessageObj);
+        setTimeout(() => {
+            createResponseForMessage(newMessageObj);
+        }, 500);
     };
 
     useEffect(() => {
@@ -89,22 +91,32 @@ const ChatRoom = (props) => {
         getAllMessagesForRoom();
     }, [props.selectedChatRoomId]);
 
+    useEffect(() => {
+        // Scroll to the bottom whenever messagesForRoom changes
+        if (bottomRef.current) {
+            bottomRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messagesForRoom]);
+
     return (
         <div className="flex-grow-1 d-flex flex-column">
             <div className="message-list flex-grow-1 overflow-auto">
                 {messagesForRoom.length > 0 ? (
-                    messagesForRoom.map((message) => (
-                        <div
-                            className={`card m-1 ${message.sender.id === userId ? 'text-end' : 'text-start'}`}
-                            key={message.id}
-                        >
-                            <div className="card-body">
-                                <div className="row">
-                                    <p className="card-text">{message.content}</p>
+                    <>
+                        {messagesForRoom.map((message) => (
+                            <div
+                                className={`card m-1 ${message.sender.id === userId ? 'text-end' : 'text-start'}`}
+                                key={message.id}
+                            >
+                                <div className="card-body">
+                                    <div className="row">
+                                        <p className="card-text">{message.content}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
+                        ))}
+                        <div ref={bottomRef} /> {/* Empty div to scroll into view */}
+                    </>
                 ) : (
                     props.selectedChatRoomId == null ?
                         <div
@@ -139,13 +151,17 @@ const ChatRoom = (props) => {
                             placeholder="Type your message..."
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    handleSendMessage();
+                                }
+                            }}
                         />
                         <button className="btn buttonColor" onClick={handleSendMessage}>
                             Send
                         </button>
                     </div>
                 </>
-
             )}
             <Modal
                 show={isModalOpen}

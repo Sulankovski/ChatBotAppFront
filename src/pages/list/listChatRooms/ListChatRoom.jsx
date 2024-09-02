@@ -15,7 +15,9 @@ const ListChatRoom = () => {
     const getChatRooms = () => {
         ChatRepository.getAllChatsForUser()
             .then((data) => {
-                setChatRooms(data.data);
+                // Reverse the order of chatRooms
+                const reversedChatRooms = data.data.reverse();
+                setChatRooms(reversedChatRooms);
             })
             .catch((error) => {
                 console.error("Error fetching chatRooms:", error);
@@ -58,7 +60,7 @@ const ListChatRoom = () => {
         <div className="backgroundColor">
             <div className="d-flex vh-100">
                 <div className="d-flex flex-column sidebar px-2">
-                    <UserInfo />
+                    <UserInfo/>
                     <div id="cardsUser">
                         {chatRooms.length > 0 ? (
                             chatRooms.map((chatRoom) => (
@@ -66,14 +68,14 @@ const ListChatRoom = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">{chatRoom.title}</h5>
                                         <div className="row">
-                                            <p className="col-6 card-text">
+                                            <p className="col-7 card-text">
                                                 {new Date(chatRoom.dateCreated).toISOString().split('T')[0]}
                                             </p>
                                             <button
-                                                className="btn buttonColor col-6"
+                                                className="btn buttonColor col-5"
                                                 onClick={() => handleOpenChat(chatRoom.id)}
                                             >
-                                                Open chat
+                                                Open
                                             </button>
                                         </div>
                                     </div>
@@ -81,7 +83,7 @@ const ListChatRoom = () => {
                             ))
                         ) : (
                             <h3 className="text-center my-5">
-                                <i className="text-secondary no-notification-message">There are no chat rooms</i>
+                                <i className="textColor no-notification-message">There are no <br/> chat rooms</i>
                             </h3>
                         )}
                     </div>
@@ -90,11 +92,11 @@ const ListChatRoom = () => {
                             className="btn buttonColor col-4 w-100"
                             onClick={() => setIsModalOpen(true)}
                         >
-                            Create new chat
+                            Create new
                         </button>
                     </div>
                 </div>
-                <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom} />
+                <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom}/>
             </div>
             <Modal
                 show={isModalOpen}

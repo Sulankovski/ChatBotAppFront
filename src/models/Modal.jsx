@@ -15,6 +15,11 @@ const Modal = ({ show, handleClose, handleCreate, chatRoomName, setChatRoomName 
                         value={chatRoomName}
                         onChange={(e) => setChatRoomName(e.target.value)}
                         className="form-control"
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                handleCreate();
+                            }
+                        }}
                     />
                 </div>
                 <div className="modal-footer">
