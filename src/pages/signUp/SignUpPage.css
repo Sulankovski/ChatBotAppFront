@@ -1,0 +1,81 @@
+/* SignUpPage.css */
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #a08a9d;
+}
+
+.signup-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-form .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.signup-form .form-group.full-width {
+    width: 100%;
+}
+
+.signup-form .form-group label {
+    width: 48%;
+    text-align: center;
+    /*margin-bottom: 5px;*/
+}
+
+.signup-form .form-group.full-width label {
+    width: 100%;
+}
+
+.signup-form .form-group .form-control {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.signup-form .form-group.full-width .form-control {
+    width: 100%;
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.signup-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-footer .text-primary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.buttonColor {
+    background-color: #3c2349;
+    color: white;
+}
+
+.buttonColor:hover {
+    background-color: #67506a;
+    color: white;
+}
+
+.textColor {
+    color: #3c2349;
+}

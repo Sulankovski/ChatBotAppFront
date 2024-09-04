@@ -72,11 +72,11 @@ function LogInPage({ toggleAuthMode }) {
                         </div>
                     </div>
                     <div className="button-container mt-3">
-                        <button type="submit" className="btn buttonColor w-50">Sign In</button>
+                        <button type="submit" className="btn buttonColor w-100">Sign In</button>
                     </div>
                 </form>
                 <p className="mt-3 text-center">
-                    New to the app? <span className="textColor" style={{ cursor: "pointer" }} onClick={navigateToRegister}>Create an account</span>
+                    New to the app? <span className="textColor fw-bold" style={{ cursor: "pointer" }} onClick={navigateToRegister}>Create an account</span>
                 </p>
             </div>
         </div>

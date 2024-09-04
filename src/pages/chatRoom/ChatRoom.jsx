@@ -99,7 +99,7 @@ const ChatRoom = (props) => {
     }, [messagesForRoom]);
 
     return (
-        <div className="flex-grow-1 d-flex flex-column">
+        <div className="flex-grow-1 d-flex flex-column listHeight">
             <div className="message-list flex-grow-1 overflow-auto">
                 {messagesForRoom.length > 0 ? (
                     <>
@@ -134,7 +134,7 @@ const ChatRoom = (props) => {
                             </h3>
                         </div> :
                         <div
-                            className="no-rooms-container d-flex justify-content-center align-items-center flex-column">
+                            className=" no-rooms-container d-flex justify-content-center align-items-center flex-column">
                             <h3 className="text-center noRoomsStyle">
                                 <p className=" no-notification-message ">No messages for chat room</p>
                                 <p className=" no-notification-message ">What are you interested in?</p>

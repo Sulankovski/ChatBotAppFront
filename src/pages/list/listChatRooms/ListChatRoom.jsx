@@ -57,9 +57,9 @@ const ListChatRoom = () => {
     };
 
     return (
-        <div className="backgroundColor">
-            <div className="d-flex vh-100">
-                <div className="d-flex flex-column sidebar px-2">
+        <div className="backgroundColor container-fluid">
+            <div className="row vh-100 vw-100 listHeight">
+                <div className="col-2 sidebar ">
                     <UserInfo/>
                     <div id="cardsUser">
                         {chatRooms.length > 0 ? (
@@ -87,7 +87,7 @@ const ListChatRoom = () => {
                             </h3>
                         )}
                     </div>
-                    <div className="mb-3 mx-3 mt-2 py-2">
+                    <div className="mb-1 mx-3 mt-2 py-3">
                         <button
                             className="btn buttonColor col-4 w-100"
                             onClick={() => setIsModalOpen(true)}
@@ -96,7 +96,9 @@ const ListChatRoom = () => {
                         </button>
                     </div>
                 </div>
-                <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom}/>
+                <div className={"col-10"}>
+                    <ChatRoom selectedChatRoomId={selectedChatRoomId} addChatRoom={addChatRoom}/>
+                </div>
             </div>
             <Modal
                 show={isModalOpen}

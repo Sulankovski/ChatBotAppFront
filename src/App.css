@@ -12,3 +12,12 @@
 .backgroundStyle{
   background-color: #a08a9d;
 }
+
+@media (max-width: 768px) {
+  .col-2 {
+    display: none;
+  }
+  .col-10 {
+    width: 100%;
+  }
+}

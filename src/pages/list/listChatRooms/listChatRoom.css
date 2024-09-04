@@ -1,7 +1,8 @@
-.listClassRoom{
-    flex: 1;
-}
+/*.listClassRoom{*/
+/*    flex: 1;*/
+/*}*/
 #cardsUser {
+    flex: 1;
     max-height: calc(100vh);
     overflow-y: auto;
 }
@@ -22,3 +23,24 @@
 .textColor{
     color: #3c2349;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.backgroundColor {
+    background-color: #a08a9d;
+    min-height: 100vh;
+}
+
+.listHeight {
+    height: 100vh;
+}
+

@@ -1,17 +1,3 @@
-.chatRoom {
-    flex: 4;
-}
-
-.message-input {
-    background-color: #a08a9d;
-    padding: 1rem;
-}
-
-.message-list {
-    background-color: #a08a9d; /* Apply background color here */
-    padding: 10px;
-}
-
 .noRoomsStyle {
     color: #3c2349;
     font-size: xx-large;
@@ -23,4 +9,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.chatRoom {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.message-list {
+    background-color: #a08a9d;
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.message-input {
+    background-color: #a08a9d;
+    padding: 1rem;
+    border-top: 1px solid #3c2349;
 }
