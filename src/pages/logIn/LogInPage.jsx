@@ -1,31 +1,32 @@
 import './LogInPage.css';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AutService from "../../services/AutService";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-function LogInPage({ toggleAuthMode }) {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+function LogInPage({toggleAuthMode}) {
+    const [formData, setFormData] = useState({email: '', password: ''});
     const navigate = useNavigate();
 
     const navigateToListChatRoom = () => {
-        navigate('/list_chat_room', { replace: true });
+        navigate('/list_chat_room', {replace: true});
+        window.location.reload();
     };
 
     const navigateToRegister = () => {
-        navigate('/register', { replace: true });
+        navigate('/register', {replace: true});
     };
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value});
     };
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const { email, password } = formData;
+        const {email, password} = formData;
         console.log("Logging in with", email, password);
-        const user = { email, password };
+        const user = {email, password};
         AutService.logInUser(user)
             .then(response => {
                 if (response.status === 200) {
@@ -72,11 +73,12 @@ function LogInPage({ toggleAuthMode }) {
                         </div>
                     </div>
                     <div className="button-container mt-3">
-                        <button type="submit" className="btn buttonColor w-100">Sign In</button>
+                        <button type="submit" className="btn buttonColor w-100 ">Sign In</button>
                     </div>
                 </form>
                 <p className="mt-3 text-center">
-                    New to the app? <span className="textColor fw-bold" style={{ cursor: "pointer" }} onClick={navigateToRegister}>Create an account</span>
+                    New to the app? <span className="textColor fw-bold" style={{cursor: "pointer"}}
+                                          onClick={navigateToRegister}>Create an account</span>
                 </p>
             </div>
         </div>

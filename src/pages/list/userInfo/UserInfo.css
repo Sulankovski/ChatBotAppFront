@@ -1,4 +1,22 @@
-.userInfo{
-  color: #3c2349;
-    font-weight: bold;
+.userInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.userInfo {
+  margin: 0;
+}
+
+button {
+  background-color: #3c2349;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #67506a;
 }

@@ -1,13 +1,15 @@
-import "./UserInfo.css"
+import "./UserInfo.css";
+import SignOut from "../../signOut/SignOut";
 
 const userDTO = JSON.parse(localStorage.getItem('userDTO'));
+
 const UserInfo = () => {
-    console.log(userDTO)
     return (
-        <div className={"p-1 ms-1 pt-2 mt-1"}>
-            <h4 className={"userInfo"}>{userDTO.name + " " + userDTO.lastName}</h4>
+        <div className="userInfoContainer">
+            <h4 className="userInfo me-2">{userDTO.name}</h4>
+            <SignOut />
         </div>
-    )
+    );
 }
 
-export default UserInfo
+export default UserInfo;
