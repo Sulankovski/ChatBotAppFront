@@ -14,6 +14,7 @@ function SignUpPage({ toggleAuthMode }) {
 
     const navigateToListChatRoom = () => {
         navigate('/list_chat_room', { replace: true });
+        window.location.reload();
     };
 
     const handleInputChange = (e) => {
